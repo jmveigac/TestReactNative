@@ -1,15 +1,20 @@
 import React, { useState } from 'react';
-import { ActivityIndicator } from 'react-native';
+import { ActivityIndicator, Text, View } from 'react-native';
 
 export default function Loader(Component) {
-    const HOC = (props, size, color) => {
+    const HOC = (props) => {
         const [isLoading, setIsLoading] = useState(true);
 
         return (
-            <div>
-                {isLoading ? <ActivityIndicator size={size} color={color} /> : null}
+            <View>
+                {(isLoading ? (
+                    <View>
+                        <ActivityIndicator />
+                        <Text>Loading...</Text>
+                    </View>
+                ) : null)}
                 < Component {...props} setIsLoading={setIsLoading} />
-            </div>
+            </View>
         );
     };
 

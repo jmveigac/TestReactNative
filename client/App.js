@@ -7,18 +7,18 @@ import LoaderExample from './components/LoaderExample';
 export default class App extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {path:0, title:"ILLO"};
+    this.state = { path: 0, title: "ILLO" };
   }
   render() {
-    const {path, title} = this.state;
+    const { path, title } = this.state;
     return (
       <View style={styles.container}>
         {
           path === 0
             ? <Test title={title} message="HELLO WORLD!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!" />
-            : path === 1 ? <MainView/>
-            : path === 2 ? <LoaderExample/>
-            : alert('path incorrect')
+            : path === 1 ? <MainView />
+              : path === 2 ? <LoaderExample />
+                : alert('path incorrect')
         }
         <Button title="Test" onPress={() => this.pressTest()} />
         <Button title="MainView" onPress={() => this.pressMainView()} />
@@ -26,14 +26,14 @@ export default class App extends React.Component {
       </View>
     );
   }
-  pressTest(){
-    this.setState({path: 0, title: this.state.title === "ILLO" ? "HOLA" : "ILLO"});
+  pressTest() {
+    this.setState({ path: 0, title: this.state.title === "ILLO" ? "HOLA" : "ILLO" });
   }
   pressMainView() {
-    this.setState({...{path:1}});
+    this.setState({ ...{ path: 1 } });
   }
-  pressLoaderExample(){
-    this.setState({...{path:2}});
+  pressLoaderExample() {
+    this.setState({ ...{ path: 2 } });
   }
 }
 const styles = StyleSheet.create({

@@ -3,10 +3,10 @@ import { Text } from 'react-native';
 import Loader from './Loader';
 
 const LoaderExample = ({setIsLoading}) => {
-    const [text, setText] = useState();
+    const [text, setText] = useState('');
 
     useEffect(() => {
-        fetch('/loaderExample')
+        fetch('http://localhost:5000/loaderExample')
             .then(res => res.text())
             .then(txt => {
                 setText(txt);
@@ -17,4 +17,4 @@ const LoaderExample = ({setIsLoading}) => {
     return <Text>{text}</Text>;
 };
 
-export default Loader(LoaderExample, 'large', '#0000ff');
+export default Loader(LoaderExample);
